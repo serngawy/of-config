@@ -6,8 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 $bootstrap_ubuntu = <<SCRIPT
 apt-get update
-apt-get install -y autoconf automake gcc libtool libxml2 libxml2-dev m4 make openssl libssl-dev pkg-config dbus dbus-*dev
-apt-get install -y linux-headers-$(uname -r) libxslt1-dev libssh2-1-dev libcurl4-openssl-dev xsltproc wget git
+apt-get install -y autoconf automake gcc libtool libxml2 libxml2-dev m4 make cmake openssl libssl-dev pkg-config dbus dbus-*dev
+apt-get install -y linux-headers-$(uname -r) libxslt1-dev libssh2-1-dev libcurl4-openssl-dev xsltproc wget git python-setuptools g++
 apt-get clean && apt-get purge
 SCRIPT
 
@@ -34,6 +34,17 @@ cd pyang-1.4.1
 python setup.py install
 SCRIPT
 
+$install_libssh = <<SCRIPT
+cd /root/
+git clone https://git.libssh.org/projects/libssh.git libssh
+cd libssh
+mkdir build
+cd build
+cmake ..
+make 
+make install
+SCRIPT
+
 $install_libnetconf = <<SCRIPT
 cd /root/
 git clone https://github.com/CESNET/libnetconf
@@ -55,10 +66,12 @@ SCRIPT
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "ofcserver" do |ofcserver|
      ofcserver.vm.box = "ubuntu/trusty64"
+     config.vm.network "public_network", bridge: "en0: Ethernet"
      ofcserver.vm.provision :shell, inline: $bootstrap_ubuntu
      ofcserver.vm.provision :shell, inline: $install_ovs
      ofcserver.vm.provision :shell, inline: $start_ovs
      ofcserver.vm.provision :shell, inline: $install_pyang
+     ofcserver.vm.provision :shell, inline: $install_libssh
      ofcserver.vm.provision :shell, inline: $install_libnetconf
      ofcserver.vm.provision :shell, inline: $install_ofconfig
   end
