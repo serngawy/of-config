@@ -1,0 +1,120 @@
+{
+	"id": "aa9afc28-a828-3fd6-9432-e74a251b00e4",
+	"name": "OF-CONFIG",
+	"description": "",
+	"order": [
+		"b982d799-4cd7-fa2a-296e-9fefdce9d723",
+		"0046120b-7aea-929b-a37d-bee0fffd836f",
+		"c69f05c5-abc1-0afe-9287-811e68ab3133",
+		"8438a358-8358-e096-9b96-f625f5594586"
+	],
+	"folders": [],
+	"timestamp": 1465931824951,
+	"owner": "",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "0046120b-7aea-929b-a37d-bee0fffd836f",
+			"headers": "Content-Type: application/xml\n",
+			"url": "http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "aa9afc28-a828-3fd6-9432-e74a251b00e4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Connection Establishment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1465931980840,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "admin",
+				"password": "admin",
+				"saveToRequest": true
+			},
+			"rawModeData": "<module xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:config\">\n   <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">prefix:sal-netconf-connector</type>\n   <name>testtool</name>\n   <address xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">{VM-IP-Address}</address>\n   <port xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">830</port>\n   <username xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">vagrant</username>\n   <password xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">vagrant</password>\n   <tcp-only xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">false</tcp-only>\n   <event-executor xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">\n     <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:netty\">prefix:netty-event-executor</type>\n     <name>global-event-executor</name>\n   </event-executor>\n   <binding-registry xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">\n     <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding\">prefix:binding-broker-osgi-registry</type>\n     <name>binding-osgi-broker</name>\n   </binding-registry>\n   <dom-registry xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">\n     <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:dom\">prefix:dom-broker-osgi-registry</type>\n     <name>dom-broker</name>\n   </dom-registry>\n   <client-dispatcher xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">\n     <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:config:netconf\">prefix:netconf-client-dispatcher</type>\n     <name>global-netconf-dispatcher</name>\n   </client-dispatcher>\n   <processing-executor xmlns=\"urn:opendaylight:params:xml:ns:yang:controller:md:sal:connector:netconf\">\n     <type xmlns:prefix=\"urn:opendaylight:params:xml:ns:yang:controller:threadpool\">prefix:threadpool</type>\n     <name>global-netconf-processing-executor</name>\n   </processing-executor>\n </module>"
+		},
+		{
+			"id": "8438a358-8358-e096-9b96-f625f5594586",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nContent-Type: application/xml\n",
+			"url": "http://localhost:8181/restconf/config/network-topology:network-topology/topology/topology-netconf/node/controller-config/yang-ext:mount/config:modules/",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "aa9afc28-a828-3fd6-9432-e74a251b00e4",
+			"data": null,
+			"dataMode": "params",
+			"name": "Get Controller-config",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1465932699228,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "admin",
+				"password": "admin",
+				"saveToRequest": true
+			}
+		},
+		{
+			"id": "b982d799-4cd7-fa2a-296e-9fefdce9d723",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"url": "http://localhost:8181/restconf/operational/network-topology:network-topology",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "aa9afc28-a828-3fd6-9432-e74a251b00e4",
+			"data": null,
+			"dataMode": "params",
+			"name": "GET Network",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1465931824950,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "admin",
+				"password": "admin",
+				"saveToRequest": true
+			}
+		},
+		{
+			"id": "c69f05c5-abc1-0afe-9287-811e68ab3133",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:8181/restconf/operations/ odl-ofconfig-ver12-api:handle_controllers",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "aa9afc28-a828-3fd6-9432-e74a251b00e4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "modify-controller-connection",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1465932074702,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "basicAuth",
+			"helperAttributes": {
+				"id": "basic",
+				"username": "admin",
+				"password": "admin",
+				"saveToRequest": true
+			},
+			"rawModeData": "{\n  \"input\":\n  {\n   \"handle_mode\": \"put\",\n   \"topo-logical-switch-node-id\":\"ofconfig_1\",\n   \"controller\":[\n\t\t{\n\t\t\"id\":\"controller_1\",\n\t\t\"ip-address\":\"192.168.1.1\",\n\t\t\"port\":\"6633\"\n\t\t}\t\n   ]\n  }\n}"
+		}
+	]
+}
